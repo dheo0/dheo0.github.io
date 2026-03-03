@@ -373,6 +373,28 @@
       padding: 20px 0;
     }
 
+    /* 경력기술서 버튼 */
+    .resume-btn {
+      margin-top: 14px;
+      background: #e94560;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+      font-family: inherit;
+    }
+
+    .resume-btn:hover {
+      background: #c73652;
+    }
+
     @media (max-width: 640px) {
       body {
         padding: 0;
@@ -453,6 +475,7 @@
             <a href="https://github.com/dheo0" target="_blank">github.com/dheo0</a>
           </div>
         </div>
+        <button class="resume-btn" onclick="downloadResume()">&#128196; 경력기술서 받기</button>
       </div>
     </div>
 
@@ -601,6 +624,22 @@
     }
 
     loadRepos();
+
+    function downloadResume() {
+      const filename = '오대영_경력기술서.docx';
+      const a = document.createElement('a');
+      a.href = filename;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      setTimeout(() => {
+        const subject = encodeURIComponent('경력기술서 - 오대영');
+        const body = encodeURIComponent('안녕하세요.\n경력기술서를 첨부하여 보내드립니다.\n(다운로드된 파일을 첨부해 주세요)');
+        window.location.href = `mailto:?subject=${subject}&body=${body}`;
+      }, 500);
+    }
   </script>
 </body>
 </html>
