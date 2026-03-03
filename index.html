@@ -305,8 +305,8 @@
 
     /* GitHub 프로젝트 */
     .repo-grid {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
 
@@ -371,6 +371,55 @@
       color: #bbb;
       text-align: center;
       padding: 20px 0;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 0;
+      }
+
+      .resume {
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .header {
+        padding: 24px 20px;
+        gap: 20px;
+      }
+
+      .avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+      }
+
+      .header-info h1 {
+        font-size: 22px;
+      }
+
+      .contacts {
+        gap: 12px;
+      }
+
+      .body {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        border-right: none;
+        border-bottom: 1px solid #eaeaea;
+        padding: 24px 20px;
+      }
+
+      .main {
+        padding: 24px 20px;
+      }
+
+      .repo-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media print {
