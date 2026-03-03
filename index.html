@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오대영 - 경력 기술서</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
+      color: #2d2d2d;
+    }
+
+    .resume {
+      width: 794px;
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 36px 48px 32px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #e94560;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .header-info h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+
+    .header-info .title {
+      font-size: 14px;
+      color: #e94560;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .contacts {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    .contact-item a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      color: #e94560;
+    }
+
+    .contact-icon {
+      font-size: 14px;
+    }
+
+    /* Body */
+    .body {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: #f7f8fc;
+      padding: 32px 24px;
+      border-right: 1px solid #eaeaea;
+    }
+
+    /* Main */
+    .main {
+      padding: 32px 36px;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #e94560;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e94560;
+    }
+
+    /* 학력 */
+    .edu-item {
+      margin-bottom: 12px;
+    }
+
+    .edu-item .school {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+
+    .edu-item .major {
+      font-size: 13px;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    .edu-item .period {
+      font-size: 12px;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    /* 자격증 */
+    .cert-list {
+      list-style: none;
+    }
+
+    .cert-list li {
+      font-size: 13px;
+      color: #444;
+      padding: 5px 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cert-list li:last-child {
+      border-bottom: none;
+    }
+
+    .cert-list li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #e94560;
+      flex-shrink: 0;
+    }
+
+    /* 스킬 */
+    .skill-group {
+      margin-bottom: 14px;
+    }
+
+    .skill-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-group-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skill-tag {
+      background: #1a1a2e;
+      color: #fff;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    .skill-tag.db {
+      background: #0f3460;
+    }
+
+    /* 경력 */
+    .career-item {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .career-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .career-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .career-company {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+
+    .career-period {
+      font-size: 12px;
+      color: #999;
+      white-space: nowrap;
+      margin-left: 12px;
+    }
+
+    .career-role {
+      font-size: 13px;
+      color: #e94560;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .career-tasks {
+      list-style: none;
+    }
+
+    .career-tasks li {
+      font-size: 13px;
+      color: #555;
+      padding: 3px 0;
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .career-tasks li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: #bbb;
+    }
+
+    /* 경력 없을 때 placeholder */
+    .career-placeholder {
+      border: 2px dashed #ddd;
+      border-radius: 6px;
+      padding: 40px 24px;
+      text-align: center;
+      color: #bbb;
+    }
+
+    .career-placeholder p {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .career-placeholder small {
+      font-size: 12px;
+      color: #ccc;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .resume {
+        box-shadow: none;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="avatar">오</div>
+      <div class="header-info">
+        <h1>오대영</h1>
+        <div class="title">Software Developer</div>
+        <div class="contacts">
+          <div class="contact-item">
+            <span class="contact-icon">✉</span>
+            <a href="mailto:dheo005@gmail.com">dheo005@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">⌥</span>
+            <a href="https://github.com/dheo0" target="_blank">github.com/dheo0</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="body">
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+
+        <!-- 학력 -->
+        <div class="section">
+          <div class="section-title">학력</div>
+          <div class="edu-item">
+            <div class="school">서강정보대학</div>
+            <div class="major">컴퓨터 정보과</div>
+            <div class="period">2002 – 2004</div>
+          </div>
+        </div>
+
+        <!-- 자격증 -->
+        <div class="section">
+          <div class="section-title">자격증</div>
+          <ul class="cert-list">
+            <li>리눅스마스터 1급</li>
+            <li>정보처리기사</li>
+            <li>사무자동화 산업기사</li>
+          </ul>
+        </div>
+
+        <!-- 스킬 -->
+        <div class="section">
+          <div class="section-title">스킬</div>
+          <div class="skill-group">
+            <div class="skill-group-label">Language</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-label">Frontend</div>
+            <div class="skill-tags">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Vue 3</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-label">Database</div>
+            <div class="skill-tags">
+              <span class="skill-tag db">MySQL</span>
+              <span class="skill-tag db">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Main -->
+      <div class="main">
+
+        <!-- 경력 -->
+        <div class="section">
+          <div class="section-title">경력</div>
+
+          <div class="career-placeholder">
+            <p>경력을 입력해 주세요</p>
+            <small>회사명, 직책, 근무기간, 주요 업무를 추가할 수 있습니다</small>
+          </div>
+
+          <!-- 경력 예시 (추후 아래 형식으로 추가)
+          <div class="career-item">
+            <div class="career-header">
+              <div class="career-company">회사명</div>
+              <div class="career-period">2020.01 – 현재</div>
+            </div>
+            <div class="career-role">직책 / 포지션</div>
+            <ul class="career-tasks">
+              <li>주요 업무 1</li>
+              <li>주요 업무 2</li>
+              <li>주요 업무 3</li>
+            </ul>
+          </div>
+          -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
